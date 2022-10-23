@@ -1,3 +1,5 @@
+### Implementation of FACI method from https://arxiv.org/abs/2208.08401
+
 vecZeroMax <- Vectorize(function(x){max(x,0)})
 vecZeroMin <- Vectorize(function(x){min(x,0)})
 
