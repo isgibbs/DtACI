@@ -186,7 +186,6 @@ computeBetasByGeoByTime <- function(scores,lookback=1,epsilon=0.001,geosToUse = 
   betaSeqMat <- matrix(0,nrow = length(geosToUse),ncol=length(dates)-1)
   
   for(t in 2:length(dates)){
-    print(t)
     prevScores <- scores$err1[scores$time_value==dates[t-1]]
     for(i in 1:length(geosToUse)){
       newScore <- scores$err1[scores$time_value==dates[t] & scores$geo_value==geosToUse[i]]

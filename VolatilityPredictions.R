@@ -109,6 +109,7 @@ fannieBadBetas <- garchConformalForcastingComputeBetas(fannieBadScores[[1]],look
 
 
 ### Run FACI
+alpha <- 0.1
 gammaGrid <- c(0.001,0.002,0.004,0.008,0.0160,0.032,0.064,0.128)
 amdStableGridGammas <- conformalAdaptStable(amdBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
 blackberryStableGridGammas <- conformalAdaptStable(blackberryBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
@@ -123,7 +124,7 @@ fannieStableGridGammasBad <- conformalAdaptStable(fannieBadBetas,alpha,gammaGrid
 ### Plot some of the results
 source("PlottingCode.R")
 
-allDates <- list(amd$Date[1:length(amdStableGridGammasBad[[1]])])
+allDates <- list(amd$Date[1:length(amdStableGridGammas[[1]])])
 for(d in 1:length(allDates)){
   allDates[[d]] <- rev(allDates[[d]])
   allDates[[d]] <- as.Date(allDates[[d]], '%m/%d/%Y')
@@ -138,6 +139,7 @@ for(d in 1:length(allDates)){
   allDates[[d]] <- gsub("2202","2002",allDates[[d]])
   allDates[[d]] <- gsub("0199","2009",allDates[[d]])
 }
-myplots <- plotLocalAvgDatesV2(amdResults[[1]],amdResults[[2]],amdResults[[3]],alpha,allDates[[1]],bandwidth=1,startUp=250)
+myplots <- plotLocalAvgDatesV2(amdStableGridGammas[[5]],amdStableGridGammas[[6]],amdStableGridGammas[[3]],
+                               alpha,allDates[[1]],bandwidth=1,startUp=250)
 grid.arrange(myplots[[1]],myplots[[2]],ncol=2)
 
