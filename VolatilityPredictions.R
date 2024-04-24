@@ -111,15 +111,15 @@ fannieBadBetas <- garchConformalForcastingComputeBetas(fannieBadScores[[1]],look
 ### Run FACI
 alpha <- 0.1
 gammaGrid <- c(0.001,0.002,0.004,0.008,0.0160,0.032,0.064,0.128)
-amdStableGridGammas <- conformalAdaptStable(amdBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
-blackberryStableGridGammas <- conformalAdaptStable(blackberryBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
-nividiaStableGridGammas <- conformalAdaptStable(nividiaBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
-fannieStableGridGammas <- conformalAdaptStable(fannieBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
+amdStableGridGammas <- conformalAdaptStable(amdBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
+blackberryStableGridGammas <- conformalAdaptStable(blackberryBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
+nividiaStableGridGammas <- conformalAdaptStable(nividiaBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
+fannieStableGridGammas <- conformalAdaptStable(fannieBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
 
-amdStableGridGammasBad <- conformalAdaptStable(amdBadBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
-blackberryStableGridGammasBad <- conformalAdaptStable(blackberryBadBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
-nividiaStableGridGammasBad <- conformalAdaptStable(nividiaBadBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
-fannieStableGridGammasBad <- conformalAdaptStable(fannieBadBetas,alpha,gammaGrid,sigma=1/500,eta=2.8)
+amdStableGridGammasBad <- conformalAdaptStable(amdBadBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
+blackberryStableGridGammasBad <- conformalAdaptStable(blackberryBadBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
+nividiaStableGridGammasBad <- conformalAdaptStable(nividiaBadBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
+fannieStableGridGammasBad <- conformalAdaptStable(fannieBadBetas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
 
 ### Plot some of the results
 source("PlottingCode.R")
