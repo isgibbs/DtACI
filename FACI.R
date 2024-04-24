@@ -12,7 +12,7 @@ pinball <- function(u,alpha){
 ### Return value is a list containing the vectors alpha_t, err_t(alpha_t), err_t(alpha), 
 ### gamma_t, alphabar_t, err_t(alphabar_t), gammabar_t. Here we use the notation err_t(x)
 ### to refer to the errors computed using input x.
-conformalAdaptStable <- function(betas,alpha,gammas,sigma=1/500,eta=2.8){
+conformalAdaptStable <- function(betas,alpha,gammas,sigma=1/1000,eta=2.72){
   T <- length(betas)
   k <- length(gammas)
   alphaSeq <- rep(alpha,T)
