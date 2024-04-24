@@ -17,7 +17,7 @@ oneBootRun <- function(blocks,returns,lookback,alpha,blockSize,gammaGrid,bands,b
     indexSeq <- as.vector(sapply(blocksBoot,function(x){x:(x+blockSize-1)}))
     scores <- garchConformalForcastingComputeScores(returns[indexSeq],lookback=lookback,badScores=!goodScores)
     betas <- garchConformalForcastingComputeBetas(scores[[1]],lookback=lookback)
-    res <- conformalAdaptStable(betas,alpha,gammaGrid,sigma=1/500,eta=2.8)
+    res <- conformalAdaptStable(betas,alpha,gammaGrid,sigma=1/1000,eta=2.72)
     return(1-sapply(bands,function(x){mean(res[[6]][res[[5]]> x & res[[5]] < x+bandwidth])}))
 }
 
