@@ -234,7 +234,7 @@ minRangeY <- 1
 maxRangeY <- 0
 count <- 1
 for(geo in countiesToUse){
-  allRes[[count]] <- conformalAdaptStable(allBetas[rownames(allBetas) ==geo],alpha,gammaGrid,sigma=1/500,eta=2.8)
+  allRes[[count]] <- conformalAdaptStable(allBetas[rownames(allBetas) ==geo],alpha,gammaGrid,sigma=1/1000,eta=2.27)
   myPlots[[count]] <- plotLocalAvgDatesV2(allRes[[count]][[5]],allRes[[count]][[6]],allRes[[count]][[3]],alpha,myDates,startUp=100) 
   if(ggplot_build(myPlots[[count]][[2]] )$layout$panel_params[[1]]$y.range[2] > maxRangeY){
     maxRangeY <- ggplot_build(myPlots[[count]][[2]] )$layout$panel_params[[1]]$y.range[2]
